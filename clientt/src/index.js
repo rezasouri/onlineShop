@@ -1,29 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import './assets/css/fontiran.css'
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import rtl from 'jss-rtl'
-import {  CssBaseline, ThemeProvider, } from '@mui/material'
-import theme from './themes/theme'
-import { create } from 'jss';
-import { StylesProvider, jssPreset } from '@mui/styles';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import "./assets/css/fontiran.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import rtl from "jss-rtl";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./themes/theme";
+import { create } from "jss";
+import { StylesProvider, jssPreset } from "@mui/styles";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./state";
 
 // Configure JSS
 const jss = create({
   plugins: [...jssPreset().plugins, rtl()],
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = configureStore({
+  // this will configure our store : we pass this to the store property of provider tag below
+  reducer: { cart: cartReducer }, // we can have multiple reducers here
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <StylesProvider jss={jss}>
-        <CssBaseline />
-        <App />
-      </StylesProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <StylesProvider jss={jss}>
+          <CssBaseline />
+          <App />
+        </StylesProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 

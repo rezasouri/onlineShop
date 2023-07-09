@@ -1,16 +1,37 @@
-import React from 'react'
-import { Typography } from '@mui/material'
-import Navbar from './screens/global/Navbar';
-import Footer from './screens/global/Footer';
+import React from "react";
+import { Typography } from "@mui/material";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./screens/global/Navbar";
+import Footer from "./screens/global/Footer";
+import Home from "./screens/home/Home";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   return (
-    <>
-    <Navbar />
-    <Footer />
-    
-    </>
+    <div className="app">
+      <BrowserRouter>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="item/:itemId" element={<ItemDetails />} /> */}
+          {/* <Route path="checkout" element={<Checkout />} /> */}
+          {/* <Route path="checkout/success" element={<Confirmation />} /> */}
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
-}
+};
 
 export default App;

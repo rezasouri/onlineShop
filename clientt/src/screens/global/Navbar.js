@@ -7,11 +7,13 @@ import {
     MenuOutlined,
     SearchOutlined
 } from '@mui/icons-material';
-import { useNavigate } from "react-router-dom"; // we can go to different urls with this. 
+import { useNavigate } from "react-router-dom";
+import { setIsCartOpen } from "../../state"; // we can go to different urls with this. 
 
 const Navbar =()=>{
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const cart = useSelector((state)=>state.cart.cart)
     return(
     <Box 
         display="flex"
@@ -44,21 +46,21 @@ const Navbar =()=>{
                 </IconButton>
 
                 <Badge // a badge is the little number in the icon which shows the amounts of items that are in our cart
-                        // badgeContent={cart.length}
-                        // color="secondary"
-                        // invisible={cart.length === 0}
-                        // sx={{
-                        //     "& .MuiBadge-badge": {
-                        //         right: 5,
-                        //         top: 5,
-                        //         padding: "0 4px",
-                        //         height: "14px",
-                        //         minWidth: "13px",
-                        //     },
-                        // }}
+                        badgeContent={cart.length}
+                        color="secondary"
+                        invisible={cart.length === 0}
+                        sx={{
+                            "& .MuiBadge-badge": {
+                                right: 5,
+                                top: 5,
+                                padding: "0 4px",
+                                height: "14px",
+                                minWidth: "13px",
+                            },
+                        }}
                     >
                         <IconButton
-                            // onClick={() => dispatch(setIsCartOpen({}))} // remember setIsCartOpen is a function in our redux toolkit and we call it with dispatch wich activates useDispatch() and then activates setIsCartOpen which that himself reverses the state of cart (open => close) and (close => open) 
+                            onClick={() => dispatch(setIsCartOpen({}))} // remember setIsCartOpen is a function in our redux toolkit and we call it with dispatch wich activates useDispatch() and then activates setIsCartOpen which that himself reverses the state of cart (open => close) and (close => open) 
                             sx={{ color: "black" }}
                         >
                             <ShoppingBagOutlined />
@@ -75,7 +77,7 @@ const Navbar =()=>{
 
             </Box>
             <Box
-                // onClick={() => navigate("/")} // as you can see with navigate which is lined to useNavigate we can access the paths that defined in the routes
+                onClick={() => navigate("/")} // as you can see with navigate which is lined to useNavigate we can access the paths that defined in the routes
                 sx={{ '&:hover': { cursor: "pointer" } }} // because we usede a phsudo element or phudo selectors (hover) we have to use the sx or we could use the style prop 
                 color={palette.secondary[500]}
             >
