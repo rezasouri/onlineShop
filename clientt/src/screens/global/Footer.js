@@ -1,10 +1,12 @@
 import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
-import theme from '../../themes/theme'
+import theme from "../../themes/theme";
 import palette from "../../themes/palette";
 
 function Footer() {
-  const {palette: { neutral },} = useTheme(theme);
+  const {
+    palette: { neutral },
+  } = useTheme(theme);
   return (
     <Box marginTop="70px" padding="40px 0" backgroundColor={neutral.light}>
       <Box
@@ -26,8 +28,11 @@ function Footer() {
             آنلاین شاپ
           </Typography>
           <div>
-          ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-           چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیاد  تا با نرم افزارها شناخت بیلی الخصوص طراحان خلاقی و فرهنگد.د
+            ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیاد
+            تا با نرم افزارها شناخت بیلی الخصوص طراحان خلاقی و فرهنگد.د
           </div>
         </Box>
 
