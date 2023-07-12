@@ -13,19 +13,19 @@ const Shipping = ({
     <Box m="30px auto">
       {/* Billing Form */}
       <Box>
-        <Typography fontSize="18px" sx={{ mb: "15px" }}>
+        <Typography variant="h6"  sx={{ mb: "15px" }}>
           اطلاعات صورت حساب
         </Typography>
         <AddressForm
           type="billingAddress"
-          value={values.billingAddress}
+          values={values.billingAddress}
           errors={errors}
           touched={touched}
           handleBlur={handleBlur}
           handleChange={handleChange}
         />
       </Box>
-      <Box>
+      <Box mb="20px">
         <FormControlLabel
           label="مشابه برای آدرس حمل و نقل"
           control={
@@ -50,7 +50,7 @@ const Shipping = ({
         </Typography>
         <AddressForm
           type="shippingAddress"
-          value={values.shippingAddress}
+          values={values.shippingAddress}
           errors={errors}
           touched={touched}
           handleBlur={handleBlur}
