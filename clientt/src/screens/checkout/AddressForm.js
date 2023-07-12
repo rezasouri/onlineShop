@@ -14,11 +14,12 @@ const AddressForm = ({
   const formattedError = (field) =>
     Boolean(
       getIn(touched, formattedName(field)) &&
-        getIn(errors, formattedError(field))
+        getIn(errors, formattedName(field))
     );
   const formattedHelper = (field) =>
     getIn(touched, formattedName(field)) &&
-    getIn(errors, formattedError(field));
+    getIn(errors, formattedName(field));
+    
   return (
     <Box
       display="grid"
@@ -31,7 +32,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="First Name"
+        label="نام"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.firstName}
@@ -43,7 +44,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Last Name"
+        label="نام خانوادگی"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.lastName}
@@ -55,7 +56,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Country"
+        label="کشور"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.country}
@@ -67,7 +68,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Street Address"
+        label="آدرس خیابان"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.street1}
@@ -79,7 +80,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Street Address 2 (optional)"
+        label="آدرس خیابان 2 (اختیاری)"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.street2}
@@ -91,7 +92,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="City"
+        label="شهر"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.city}
@@ -103,7 +104,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="State"
+        label="استان"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.state}
@@ -115,7 +116,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Zip Code"
+        label="کد پستی"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.zipCode}
